@@ -8,6 +8,7 @@ public class SsckApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SsckApiApplication.class, args);
+		System.out.println("open in => " + "http://localhost:1234");
 	}
 
 }
