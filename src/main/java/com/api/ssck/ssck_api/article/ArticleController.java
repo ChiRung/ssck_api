@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController {
     
     final ArticleService articleService;
+    final MockRepo mockRepo;
 
     @GetMapping("/all")
     public List<ArticleEntity> getAllArticles() {
@@ -23,5 +24,17 @@ public class ArticleController {
     @PostMapping("/add")
     public Object postArticle(@RequestBody ArticleEntity article) {
         return articleService.postArticle(article);
+    }
+
+
+    @GetMapping("/mock")
+    public List<MockList> mock() {
+        return mockRepo.findAll();
+    }
+
+    @PostMapping("/mock")
+    public List<MockList> mock2(@RequestBody MockList list){
+        mockRepo.save(list);
+        return mockRepo.findAll();
     }
 }

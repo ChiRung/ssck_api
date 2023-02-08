@@ -16,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 @Data
 @Entity(name = "article")
 public class ArticleEntity {
+    // block은 어디까지나 조회에만 사용할 수 있다.
+    // 등록에는 이런 형식의 Entity를 사용하면 안됨.
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
