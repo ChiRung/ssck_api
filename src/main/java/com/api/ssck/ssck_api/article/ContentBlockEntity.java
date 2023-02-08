@@ -4,18 +4,15 @@ import java.util.List;
 
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.ElementCollection;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Data
-@Entity(name = "contentBlock")
 public class ContentBlockEntity {
 
-    @Id
     Long articleId;
 
     @Column(name = "blockId")
@@ -27,11 +24,11 @@ public class ContentBlockEntity {
 
     String text;
 
+    @ElementCollection
     List<String> texts;
 
     @Builder
-    public ContentBlockEntity(Long articleId, String id, String type, String style, String text, List<String> texts) {
-        this.articleId = articleId;
+    public ContentBlockEntity(String id, String type, String style, String text, List<String> texts) {
         this.id = id;
         this.type = type;
         this.style = style;
