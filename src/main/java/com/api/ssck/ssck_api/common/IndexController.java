@@ -1,4 +1,4 @@
-package com.api.ssck.ssck_api.common.controller;
+package com.api.ssck.ssck_api.common;
 
 import java.util.Map;
 
