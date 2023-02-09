@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.api.ssck.ssck_api.article.Entity.ArticleEntity;
+import com.api.ssck.ssck_api.article.Repository.ArticleRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -16,8 +19,8 @@ public class ArticleService {
         return articleRepository.findAll();
     }
 
-    public String postArticle(ArticleEntity article) {
-        articleRepository.save(article);
-        return "호옹이";
+    public List<ArticleEntity> postArticle(ArticleEntity article) {
+        Long savedArticleId = articleRepository.save(article).getArticleId();
+        return articleRepository.findAllByArticleId(savedArticleId);
     }
 }
