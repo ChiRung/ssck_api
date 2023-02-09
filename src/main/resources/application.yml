@@ -11,6 +11,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+      # create: 기존 테이블을 삭제하고 새로 생성 (DROP - CREATE)
+      # create-drop: create와 동일하나 어플리케이션 종료시 테이블 삭제 (DROP - CREATE - DROP)
+      # update: 데이터베이스 테이블 - 엔터티 매핑정보를 비교해서 변경사항만 수정
+      # validate: 데이터베이스 테이블 - 엔터티 매핑정보를 비교해서 차이가있으면 어플리케이션을 실행하지 않음
+      # none: 자동 생성 기능을 사용하지 않음
     properties:
       hibernate:
         format_sql: true
